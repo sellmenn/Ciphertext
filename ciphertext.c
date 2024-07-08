@@ -33,7 +33,7 @@ int main(int argc, char* argv[]){
         int length_scrambled = sizeof(scrambled)/sizeof(scrambled[0]);
         fgets(scrambled,length_scrambled, stdin); // Store input in array
         char plaintext[length_scrambled]; // Create array to store plaintext
-        char* ptr = unscramble(scrambled, length_scrambled, key, plaintext); // Unscramble text using key
-        printf("Plain text: %s", ptr);
+        unscramble(scrambled, length_scrambled, key, plaintext); // Unscramble text using key
+        printf("Plain text: %s", plaintext);
     }
 }

@@ -77,7 +77,7 @@ Will do the following:
 (1) For every ith-indexed char in the array(1), obtain the index n of corresponding char in key.
 (2) Assign the nth alphabet to the ith-indexed char in array(4)
 */
-char* unscramble(char scrambled[], int length, char key[], char plaintext[]){
+void unscramble(char scrambled[], int length, char key[], char plaintext[]){
     for (int i = 0; i < length; i++){
         // For each character in scrambled text, obtain index in key
         for (int index = 0; index < 26; index++){
@@ -97,7 +97,6 @@ char* unscramble(char scrambled[], int length, char key[], char plaintext[]){
             }
         }
     }
-    return plaintext;
 }
 
 /* Function which if passed:
