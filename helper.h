@@ -56,10 +56,9 @@ void scramble(char plaintext[], int length, char key[], char scrambled_text[]){
         if (plaintext[i] >= 65 && plaintext[i] <= 90){
             scrambled_text[i] = key[plaintext[i] - 65];
         }
-        // If lowercase, convert to upper, assign key, and convert to lower.
+        // If lowercase assign key, and convert to lower.
         else if (plaintext[i] >= 97 && plaintext[i] <= 122){
-            plaintext[i] = plaintext[i] - 32;
-            scrambled_text[i] = key[plaintext[i] - 65] + 32;
+            scrambled_text[i] = key[plaintext[i] - 97] + 32;
         }
         // If not alphabetical, no change
         else {
