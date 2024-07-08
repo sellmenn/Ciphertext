@@ -12,11 +12,14 @@ int main(int argc, char* argv[]){
         return 1;
     }
     printf("\nEncryption key: %s\n", key);
-    printf("Select option:\n(1) Encrypt\n(2) Decrypt\n\nEnter option '1' or '2: ");
-    int option;
-    scanf("%i", &option);
+    int option = 0;
+    do{
+        printf("Select option:\n(1) Encrypt\n(2) Decrypt\n\nEnter option '1' or '2: ");
+        scanf("%i", &option);
+    } while (option != 1 && option != 2);
     char buffer[2]; // Store \n in buffer
     fgets(buffer, 2, stdin);
+    // If encrypting text
     if (option == 1){
         char plaintext[100]; // Create array to store plaintext
         printf("Plaintext: "); // Prompt user
@@ -27,7 +30,8 @@ int main(int argc, char* argv[]){
         printf("Scrambled text: %s", scrambledtext);
         return 0;
     }
-    else if (option == 2){
+    // If decrypting text
+    else {
         char scrambled[100]; // Create array to store scrambled text
         printf("Scrambled text: "); // Prompt user
         int length_scrambled = sizeof(scrambled)/sizeof(scrambled[0]);
@@ -35,5 +39,6 @@ int main(int argc, char* argv[]){
         char plaintext[length_scrambled]; // Create array to store plaintext
         unscramble(scrambled, length_scrambled, key, plaintext); // Unscramble text using key
         printf("Plain text: %s", plaintext);
+        return 0;
     }
 }
